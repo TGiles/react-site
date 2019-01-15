@@ -1,34 +1,24 @@
-import React, { Component } from 'react';
-// import logo from './logo.svg';
-import './App.css';
+
+import React from "react";
+import { BrowserRouter as Router, Route} from "react-router-dom";
+import About from './components/pages/About';
 import Header from './components/layout/Header';
-import Body from './components/layout/Body';
-class App extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <Header/>
-        <Body/>
-      </React.Fragment>
-      
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a>
-      //   </header>
-      // </div>
-    );
-  }
-}
+import Home from './components/pages/Home';
+import Nobody_Cares from './components/pages/Nobody_cares';
+import Contact from './components/pages/Contact';
+
+const App = () => (
+  <Router>
+    <div>
+      <Header />
+
+      <Route exact path="/" component={Home} />
+      <Route path="/home" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/nobody_cares" component={Nobody_Cares} />
+      <Route path="/contact" component={Contact}/>
+    </div>
+  </Router>
+);
 
 export default App;
